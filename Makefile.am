@@ -1,7 +1,7 @@
 FC = @F77@
 ACLOCAL_AMFLAGS = -I ./m4
 
-OBJECTS = test.o junk.o
+OBJECTS = test.f junk.f
 
 COMMON = Stuff.com
 
