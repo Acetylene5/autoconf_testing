@@ -1,9 +1,11 @@
 AC_PREREQ([2.59])
 AC_INIT([test.f], [version_1.0],[deen@mpia.de])
-
+AM_INIT_AUTOMAKE()
 AC_PROG_F77([gfortran])
 AC_CONFIG_MACRO_DIR([m4])
 
+sinclude(m4/ax_blas.m4)
+sinclude(m4/ax_lapack.m4)
 AX_LAPACK
 
 #AX_BLAS([have_blas=yes], [have_blas=no])
