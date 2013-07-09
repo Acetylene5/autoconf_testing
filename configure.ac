@@ -1,6 +1,6 @@
 AC_PREREQ([2.59])
 AC_INIT([test.f], [version_1.0],[deen@mpia.de])
-AM_INIT_AUTOMAKE()
+AM_INIT_AUTOMAKE([foreign])
 AC_PROG_F77([gfortran])
 AC_CONFIG_MACRO_DIR([m4])
 
