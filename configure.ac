@@ -4,17 +4,16 @@ AM_INIT_AUTOMAKE([foreign])
 AC_PROG_F77([gfortran])
 AC_CONFIG_MACRO_DIR([m4])
 
+AC_CONFIG_FILES([
+    Makefile
+    src/Makefile
+])
+
 sinclude(m4/ax_blas.m4)
 sinclude(m4/ax_lapack.m4)
+sinclude(m4/ax_supermongo.m4)
+#SMLIB="/usr/local/misc/sm/sm2_4_36/lib/"
 AX_LAPACK
-
-#AX_BLAS([have_blas=yes], [have_blas=no])
-#if test "x${have_blas}" = xno; then
-#    AC_MSG_ERROR([
-#       ------------------------------------------
-#       A BLAS library and header file required to build csdp. Stopping...
-#       Check 'config.log' for more information.
-#       ------------------------------------------])
-#fi
-
-AC_OUTPUT(Makefile)
+AX_SUPERMONGO
+LIBS="$SMLIB $LAPACK_LIBS $BLAS_LIBS $FLIBS $LIBS"
+AC_OUTPUT
