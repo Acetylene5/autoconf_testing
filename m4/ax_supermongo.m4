@@ -82,6 +82,12 @@ if test "x$SUPERMONGO_LIBS" != x; then
         fi
 fi
 
+if test $ax_supermongo_ok = no; then
+        save_LIBS="$LIBS"; LIBS="$LIBS"
+        AC_CHECK_FUNC($sm_graphics, [ax_supermongo_ok=yes])
+        LIBS="$save_LIBS"
+fi
+
 AC_SUBST(SM_LIBS)
 
 # Finally, execute ACTION-IF-FOUND/ACTION-IF-NOT-FOUND:
